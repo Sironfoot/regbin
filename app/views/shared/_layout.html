@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    
+        <title>RegBin</title>
+        
+        <link rel="stylesheet/less" href="/static/styles/1.normalize.less" />
+        <link rel="stylesheet/less" href="/static/styles/2.utils.less" />
+        <link rel="stylesheet/less" href="/static/styles/3.main.less" />
+        
+        <script src="/static/scripts/less.js"></script>
+        <script data-main="/static/scripts/main" src="/static/scripts/require.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+        
+            <header id="Header">
+                <div class="inner">
+                    <hgroup>
+                        <h1 class="title">RegBin</h1>
+                        <h2 class="blurb">the JavaScript regex playground</h2>
+                    </hgroup>
+                
+                    <aside class="commonExpressions">
+                        <label>Common expressions</label>
+                        <select>
+                            <option>E-mail</option>
+                            <option>Telephone</option>
+                        </select>
+                    </aside>
+                </div>
+            </header>
+            
+            <div id="Middle">
+                <div class="inner">
+                    {+content}{/content}
+                </div>
+            </div>
+            
+            <footer id="Footer">
+                <div class="inner">
+                    <nav class="links">
+                        <ul>
+                            <li><a href="#">about</a></li>
+                            <li><a href="#">links</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <small class="legal">
+                        Copyright &copy; 2013 - Dominic Pettifer
+                    </small>
+                </div>
+            </footer>
+            
+        </div>
+    </body>
+</html>

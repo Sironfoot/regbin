@@ -19,13 +19,13 @@
         <text>var%20myText%20%3D%20%22</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="372" y="266" w="217" h="-1" measuredW="209" measuredH="30" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="372" y="266" w="400" h="-1" measuredW="209" measuredH="30" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
         <text>I%20hate%20regular%20expressions%21</text>
       </controlProperties>
     </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::Title" x="589" y="269" w="34" h="-1" measuredW="15" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Title" x="772" y="269" w="34" h="-1" measuredW="15" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <align>left</align>
         <size>24</size>
@@ -113,6 +113,11 @@
     <control controlID="21" controlTypeID="com.balsamiq.mockups::Button" x="770" y="655" w="-1" h="-1" measuredW="53" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Copy</text>
+      </controlProperties>
+    </control>
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::Button" x="372" y="376" w="104" h="27" measuredW="71" measuredH="27" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Execute</text>
       </controlProperties>
     </control>
   </controls>

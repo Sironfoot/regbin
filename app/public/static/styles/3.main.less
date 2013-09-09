@@ -1,0 +1,298 @@
+@font-face {
+    font-family: 'sourcecodepro-regular';
+    src: url('fonts/sourcecodepro-regular-webfont.woff') format('woff'),
+         url('fonts/sourcecodepro-regular-webfont.svg#source_code_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #444;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-width: 980px
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+    
+    background: #ECECEC -webkit-linear-gradient(from top, #fff 0, #ECECEC 1000px);
+    background: #ECECEC linear-gradient(to bottom, #fff 0, #ECECEC 1000px);
+}
+
+
+
+
+
+/* ---- Header ---- */
+#Header {
+    background: -webkit-linear-gradient(top, #FFDB4C 0, #E4B900 100%);
+    background: linear-gradient(to bottom, #FFDB4C 0, #E4B900 100%);
+    padding: 1em;
+    border-bottom: 2px solid #AF8E00;
+}
+
+#Header > .inner {
+    max-width: 960px;
+    margin: 0 auto;
+} 
+
+#Header .title,
+#Header .blurb {
+    color: #8E5828;
+    text-shadow: 0 1px 0 #FFFAC4;
+    display: inline-block;
+    margin: 0;
+}
+
+#Header .blurb {
+    margin-left: 1em;
+    font-size: 16px;
+}
+
+#Header .commonExpressions {
+    float: right;
+}
+
+
+
+
+
+
+/* ---- Middle ----*/
+
+#Middle {
+    padding-bottom: 150px; /*-- height of the footer */
+}
+
+#Middle > .inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 120px 0 80px 0;
+    position: relative;
+}
+
+
+.help {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #74641A;
+    text-shadow: 0 1px 0 #FFFCEF;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.help:hover {
+    opacity: 1;
+}
+
+.help > .inner {
+    border-radius: 8px;
+    background-color: #FFF6C7;
+    border: 1px solid #E7DEAE;
+    font-size: 14px;
+    padding: 1.0em;
+    display: inline-block;
+}
+
+.help p,
+.help .title {
+    font-size: 14px;
+    display: inline-block;
+    margin: 0;
+}
+
+.help .title {
+    margin-right: 10px;
+}
+
+
+
+
+.controls {
+    text-align: center;
+    display: table;
+    width: 100%;
+}
+
+.controls .control {
+    display: table-row;
+}
+
+.controls .control > .col {
+    display: table-cell;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: top;
+}
+
+.controls .control > .left.col {
+    text-align: right;
+    width: 20%
+}
+
+.controls .control > .right.col {
+    text-align: left;
+    width: 25%;
+}
+
+.controls .control > .middle.col {
+    text-align: left;
+}
+
+.controls .stringControl textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.control input,
+.control select,
+.control textarea,
+.control p {
+    display: inline-block;
+    font-family: "sourcecodepro-regular", Courier, monospace;
+    font-size: 14px;
+}
+
+.control textarea {
+    position: relative;
+    top: -2px;
+}
+
+.control p {
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.controls .regexInput {
+    display: table;
+    width: 100%;
+}
+
+.controls .regexInput .col {
+    display: table-cell;
+}
+
+.controls .regexInput .left.col {
+    width: 99%;
+}
+
+.controls .regexInput textarea {
+    width: 100%;
+    resize: vertical;
+}
+
+.controls .regexInput #regexError {
+    color: rgb(255, 119, 119);
+    padding-left: 0.4em;
+}
+
+.controls .outputControl .result > p {
+    padding-left: 0.4em;
+    font-size: 14px;
+}
+
+.controls .outputControl.search .searchMarker,
+.controls .outputControl.search .searchIndexPos {
+    display: block;
+}
+
+.controls .outputControl.search .col.left {
+    padding-right: 1em;
+}
+
+.controls .outputControl.search .col.left p.found,
+.controls .outputControl.search .col.left p.notFound {
+    text-indent: -9999px;
+    width: 16px;
+    height: 16px;
+    background: url(images/found.png) left top no-repeat;
+    font-size: 0;
+    vertical-align: top;
+}
+
+.controls .outputControl.search .col.left p.notFound {
+    background-image: url(images/not-found.png);
+}
+
+.outputControl.match .foundResult {
+    padding-right: 1em;
+}
+
+.outputControl.match .resultOutput {
+    padding-left: 0;
+    margin: 0;
+    margin-left: 0.4em;
+    list-style-type: none;
+    font-size: 14px;
+    font-family: "sourcecodepro-regular", Courier, monospace;
+}
+
+
+.controls .exampleControl .col {
+    padding-top: 50px;
+}
+
+.controls .exampleControl code {
+    font-size: 14px;
+    font-family: "sourcecodepro-regular", Courier, monospace;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    display: block;
+    line-height: 1.5em;
+    padding: 0.2em 0.4em;
+}
+
+.controls .exampleControl .right.col {
+    padding-left: 10px;
+}
+
+
+
+/* ---- Footer ----*/
+#Footer {
+    background: -webkit-linear-gradient(from top, #474644 0, #2E2C27 100%);
+    background: linear-gradient(to bottom, #474644 0, #2E2C27 100%);
+    box-shadow: 0 -3px 15px rgba(0,0,0,0.3);
+    color: #ddd;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px; /*-- also set this as bottom padding in the #Middle section */
+}
+
+#Footer > .inner {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+#Footer a {
+    color: #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

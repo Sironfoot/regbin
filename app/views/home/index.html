@@ -1,0 +1,147 @@
+{>"shared/_layout.html"/}
+{<content}
+
+    <section class="help">
+        <div class="inner">
+            <h2 class="title">Tip:</h2>
+            <p>Share your creations with the world. Copy the URL in the address bar when you're finished.</p>
+        </div>
+    </section>
+
+    <div class="controls">
+    
+        <!-- String input control -->
+    	<div class="stringControl control">
+    	    <div class="left col">
+    	        <p>var myString = "</p>
+    	    </div>
+    	    <div class="middle col">
+    	        <textarea id="inputString" cols="60" rows="1" placeholder="your string">I hate regular expressions!</textarea>
+    	    </div>
+    	    <div class="right col">
+    	        <p>";</p>
+    	    </div>
+    	</div>
+    	
+    	
+    	
+    	<!-- Regular Expression input controls -->
+    	<div class="regexControl control">
+    	    <div class="left col">
+        	    <p>myString.</p>
+        	    <select id="stringFunction">
+        	        <option>replace</option>
+        	        <option>search</option>
+        	        <option>match</option>
+        	        <option>split</option>
+        	    </select>
+        	    <p>(/</p>
+    	    </div>
+    	    
+    	    <div class="middle col">
+    	        <div class="regexInput">
+    	            <div class="left col">
+            	        <textarea id="inputRegex" cols="60" rows="1" placeholder="regular expression">\b(hate)\b</textarea>
+            	        <p id="regexError">&nbsp;</p>
+    	            </div>
+    	            <div class="middle col">
+            	        <p>/</p>
+    	            </div>
+    	            <div class="right col">
+                	    <select id="inputRegexOptions">
+                	        <option value="">-</option>
+                	        <option value="i">i</option>
+                	        <option value="g">g</option>
+                	        <option value="m">m</option>
+                	        <option selected value="ig">ig</option>
+                	        <option value="im">im</option>
+                	        <option value="gm">gm</option>
+                	        <option value="igm">igm</option>
+                	    </select>
+    	            </div>
+    	        </div>
+            </div>
+            
+            <div class="right col">
+                <div class="replacementContainer">
+            	    <p>, "</p>
+            	    <input id="inputReplacement" type="text" class="text" placeholder="replacement" value="love" />
+            	    <p>");</p>
+                </div>
+                
+                <div class="blankContainer" style="display: none;">
+                    <p>);</p>
+                </div>
+            </div>
+    	</div>
+    	
+    	
+    	
+    	<!-- Output controls -->
+    	<div class="outputControl replace control">
+    	    <div class="left col">
+    	        <p>myString === "</p>
+    	    </div>
+    	    
+    	    <div class="middle col result">
+    	        <p class="resultOutput">I <mark>love</mark> regular expressions!</p>
+    	    </div>
+    	    
+    	    <div class="right col">";</div>
+    	</div>
+    	
+        <div class="outputControl search control" style="display: none;">
+    	    <div class="left col">
+    	        <p class="foundResult found">Found</p>
+    	    </div>
+    	    
+    	    <div class="middle col result">
+    	        <p class="searchOutput">I <mark>love</mark> regular expressions!</p>
+                <p class="searchMarker">
+                    &nbsp;&nbsp;^
+                </p>
+                <p class="searchIndexPos">
+                    &nbsp;&nbsp;index pos: 2
+                </p>
+    	    </div>
+    	    
+    	    <div class="right col"></div>
+    	</div>
+    	
+        <div class="outputControl match control" style="display: none;">
+    	    <div class="left col">
+    	        <p class="foundResult found">4 matches:</p>
+    	    </div>
+    	    
+    	    <div class="middle col result">
+    	        <ul class="resultOutput">
+    	            <li>hate</li>
+    	            <li>regular</li>
+    	            <li>expressions</li>
+    	            <li>!</li>
+    	        </ul>
+    	    </div>
+    	    
+    	    <div class="right col"></div>
+    	</div>
+    	    	
+    	
+    	<!-- Sample code --->
+        <div class="exampleControl control">
+    	    <div class="left col"></div>
+    	    
+    	    <div class="middle col example">
+    	        <code id="exampleCode">
+                    var indexPos = myString.search(/\b(hate)\b/g);
+                </code>
+    	    </div>
+    	    
+    	    <div class="right col">
+        	    <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
+    	    </div>
+    	</div>
+    </div>
+	
+	
+		
+{/content}

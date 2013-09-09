@@ -1,0 +1,36 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+}
+
+button {
+    font-size: 14px;
+} 
+
+
+input,
+textarea,
+select {
+    border: 1px solid #ddd;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    color: 333;
+    font-size: 12px;
+}
+
+.input.error,
+textarea.error,
+select.error {
+    border-color: rgb(241, 107, 107);
+    box-shadow: 0 0 10px rgb(255, 153, 153);
+}
+
+.input.error:focus,
+textarea.error:focus,
+select.error:focus {
+    outline: 1px solid red;
+}
