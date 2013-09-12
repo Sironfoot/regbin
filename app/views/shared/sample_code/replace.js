@@ -1,0 +1,1 @@
+var newString = myString.replace(/$1/$2, "$3");

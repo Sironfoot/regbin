@@ -124,7 +124,24 @@
     	    
     	    <div class="right col"></div>
     	</div>
-    	    	
+    	
+    	<div class="outputControl split control" style="display: none;">
+    	    <div class="left col">
+    	        <p class="foundResult found">4 items:</p>
+    	    </div>
+    	    
+    	    <div class="middle col result">
+    	        <ul class="resultOutput">
+    	            <li>hate</li>
+    	            <li>regular</li>
+    	            <li>expressions</li>
+    	            <li>!</li>
+    	        </ul>
+    	    </div>
+    	    
+    	    <div class="right col"></div>
+    	</div>
+    
     	
     	<!-- Sample code --->
         <div class="exampleControl control">
@@ -132,7 +149,7 @@
     	    
     	    <div class="middle col example">
     	        <code id="exampleCode">
-                    var indexPos = myString.search(/\b(hate)\b/g);
+                    var newString = myString.replace(/\b(hate)\b/ig, "love");
                 </code>
     	    </div>
     	    
@@ -142,6 +159,9 @@
     	</div>
     </div>
 	
-	
+	<script id="CodeSampleReplace" type="text/template">{codeSamples.replace}</script>
+	<script id="CodeSampleSearch" type="text/template">{codeSamples.search}</script>
+	<script id="CodeSampleMatch" type="text/template">{codeSamples.match}</script>
+	<script id="CodeSampleSplit" type="text/template">{codeSamples.split}</script>
 		
 {/content}

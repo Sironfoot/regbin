@@ -40,6 +40,12 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     
                     controls.outputs.match.container.style.display = 'table-row';
                 }
+                else if(method === 'split') {
+                    controls.outputs.split.found.$_text('No items found');
+                    controls.outputs.split.result.$_html('<li></li>');
+                
+                    controls.outputs.split.container.style.display = 'table-row';
+                }
                 
                 controls.exampleCode.textContent = '-';
                 
@@ -61,7 +67,9 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     
                     controls.outputs.replace.result.$_html(result.replace(/\n/g, '<br />'));
                     
-                    controls.exampleCode.textContent = codePlaceholders.replace
+                    controls.exampleCode.innerHTML = codePlaceholders.replace
+                        .replace(/\n/g, '<br />')
+                        .replace(/  /g, '&nbsp;&nbsp;')
                         .replace('$1', regexString)
                         .replace('$2', options)
                         .replace('$3', replacement);
@@ -103,7 +111,9 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                         controls.outputs.search.indexPos.$_html('index pos: -1');
                     }
                     
-                    controls.exampleCode.textContent = codePlaceholders.search
+                    controls.exampleCode.innerHTML = codePlaceholders.search
+                        .replace(/\n/g, '<br />')
+                        .replace(/  /g, '&nbsp;&nbsp;')
                         .replace('$1', regexString)
                         .replace('$2', options);
                     
@@ -127,12 +137,36 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     }
                     controls.outputs.match.result.$_html(resultText);
                 
-                    controls.exampleCode.textContent = codePlaceholders.match
+                    controls.exampleCode.innerHTML = codePlaceholders.match
+                        .replace(/\n/g, '<br />')
+                        .replace(/  /g, '&nbsp;&nbsp;')
                         .replace('$1', regexString)
                         .replace('$2', options);
                 
                     controls.outputs.allContainers.$_hide();
                     controls.outputs.match.container.style.display = 'table-row';
+                }
+                else if (method === 'split') {
+                    var items = input.split(regex);
+                    
+                    var foundText = items.length === 0 ? 'No' : items.length;
+                    foundText += ' item' + (items.length !== 1 ? 's' : '');
+                    controls.outputs.split.found.$_text(foundText);
+                    
+                    var resultText = '';
+                    for (var i = 0; i < items.length; i++) {
+                        resultText += '<li>"' + utils.htmlEncode(items[i]) + '"</li>';
+                    }
+                    controls.outputs.split.result.$_html(resultText);
+                    
+                    controls.exampleCode.innerHTML = codePlaceholders.split
+                        .replace(/\n/g, '<br />')
+                        .replace(/  /g, '&nbsp;&nbsp;')
+                        .replace('$1', regexString)
+                        .replace('$2', options);
+
+                    controls.outputs.allContainers.$_hide();
+                    controls.outputs.split.container.style.display = 'table-row';
                 }
                 
                 controls.regex.$_removeClass('error');
@@ -173,6 +207,11 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     found: $.query('.outputControl.match .foundResult'),
                     result: $.query('.outputControl.match .resultOutput')
                 },
+                split: {
+                    container: $.query('.outputControl.split'),
+                    found: $.query('.outputControl.split .foundResult'),
+                    result: $.query('.outputControl.split .resultOutput')
+                },
                 allContainers: $.queryAll('.outputControl')
             },
             containers: {
@@ -182,9 +221,10 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
         };
         
         var codePlaceholders = {
-            replace: 'myString = myString.replace(/$1/$2, "$3");',
-            search: 'var indexPos = myString.search(/$1/$2);',
-            match: 'var matches = myString.match(/$1/$2);'
+            replace: $.fromId('CodeSampleReplace').$_html(),
+            search: $.fromId('CodeSampleSearch').$_html(),
+            match: $.fromId('CodeSampleMatch').$_html(),
+            split: $.fromId('CodeSampleSplit').$_html()
         };
         
         controls.input.$_on('keyup', executeRegex);

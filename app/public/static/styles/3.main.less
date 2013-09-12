@@ -43,6 +43,8 @@ body {
 #Header > .inner {
     max-width: 960px;
     margin: 0 auto;
+    width: 100%;
+    display: table;
 } 
 
 #Header .title,
@@ -58,8 +60,15 @@ body {
     font-size: 16px;
 }
 
+#Header .titleContainer,
 #Header .commonExpressions {
-    float: right;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+}
+
+#Header .commonExpressions {
+    text-align: right;
 }
 
 
@@ -227,11 +236,13 @@ body {
     background-image: url(images/not-found.png);
 }
 
-.outputControl.match .foundResult {
+.outputControl.match .foundResult,
+.outputControl.split .foundResult {
     padding-right: 1em;
 }
 
-.outputControl.match .resultOutput {
+.outputControl.match .resultOutput,
+.outputControl.split .resultOutput {
     padding-left: 0;
     margin: 0;
     margin-left: 0.4em;

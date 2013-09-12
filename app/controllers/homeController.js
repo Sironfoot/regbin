@@ -1,13 +1,33 @@
 var gu = require('guthrie');
+var fs = require('fs');
+var path = require('path');
+var async = require('async');
 
-var homeController = gu.controller.create();
+var sampleCode = require('./../lib/sampleCode');
+
+var homeController = gu.controller.create({
+    filters: [
+        function(req, res, next) {
+            this.rootDir = path.join(__dirname, '..');
+            next();
+        }
+    ]
+});
 
 homeController.actions = {
     
     // PATH: /
     index: {
         GET: function(req, res) {
-            res.view();
+                        
+            res.view({
+                codeSamples: {
+                    replace: sampleCode.replace,
+                    search: sampleCode.search,
+                    match: sampleCode.match,
+                    split: sampleCode.split
+                }
+            });
         }
     }
 };
