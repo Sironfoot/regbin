@@ -6,7 +6,7 @@ var replace = 'var newString = myString.replace(/$1/$2, "$3");';
 
 var match = 'var matches = myString.match(/$1/$2);\n' +
             '\n' +
-            '// "matches" will be null if no matches were found\n' +
+            '// will be null if no matches found\n' +
             'if (matches) {\n' +
             '    matches.forEach(function(match, index) {\n' +
             '        // do something with "match"\n' +
