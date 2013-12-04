@@ -11,11 +11,13 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
             var options = controls.options.value;
             
             if (regexString === '') {
-                controls.outputs.allContainers.$_hide();
+                controls.outputs.allContainers.$_hide(); 
             
                 if (method === 'replace') {
                     var result = utils.htmlEncode(input);
                     result = result.replace(/\n/g, '<br />');
+                    
+                    
                     
                     controls.outputs.replace.result.$_html(result);
                     
