@@ -25,14 +25,11 @@ Bootstrapper.prototype.run = function(finished) {
 	
 	if (this.path) {
 		fs.readdir(dirPath, function(err, files) {
-
+		
 			processFiles(dirPath, files, [], function(taskModules) {
 			
-				console.log('Found ' + taskModules.length + ' taskModules');
-				// TODO: run taskModules
+				// run taskModules
 				taskModules.forEach(function(taskModule) {
-				
-					console.log(taskModule);
 				
 					if (taskModule.task) {
 						that.tasks.push(taskModule.task);
@@ -45,7 +42,6 @@ Bootstrapper.prototype.run = function(finished) {
 					}
 				});
 				
-				console.log('running tasks: ' + that.tasks.length);
 				runTasks(that.tasks, state, function() {
 					if (finished) {
 						finished(state);

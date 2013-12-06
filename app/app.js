@@ -6,6 +6,8 @@ var http = require('http');
 var path = require('path');
 var Bootstrapper = require('./lib/bootstrapper');
 
+global.__rootDir = __dirname;
+
 var app = express();
 
 var bootstrapper = new Bootstrapper({
