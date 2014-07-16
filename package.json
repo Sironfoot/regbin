@@ -13,7 +13,7 @@
   "contributors": [],
   
   "scripts": {
-    "start": "NODE_ENV=dev nodemon ./src/app.js --ignore ./public",
+    "start": "NODE_ENV=dev nodemon ./src/app.js --ignore ./public"
   },
   
   "dependencies": {
