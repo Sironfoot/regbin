@@ -5,10 +5,11 @@
     
         <title>RegBin</title>
         
-        <link rel="stylesheet/less" href="/static/styles/1.normalize.less" />
-        <link rel="stylesheet/less" href="/static/styles/2.utils.less" />
-        <link rel="stylesheet/less" href="/static/styles/3.main.less" />
+        <link rel="stylesheet/less" href="/static/styles/1.normalize.css" />
+        <link rel="stylesheet/less" href="/static/styles/2.utils.css" />
+        <link rel="stylesheet/less" href="/static/styles/3.main.css" />
         
+        <script> less = { logLevel: 0 }; </script>
         <script src="/static/scripts/less.js"></script>
         <script data-main="/static/scripts/main" src="/static/scripts/require.js"></script>
     </head>
@@ -22,6 +23,7 @@
                         <h2 class="blurb">the JavaScript regex playground</h2>
                     </hgroup>
                 
+                    <!--
                     <aside class="commonExpressions">
                         <label class="label" for="expressionsSelect">Common expressions</label>
                         <select id="expressionsSelect">
@@ -34,6 +36,7 @@
                             <option value="hex">Hexadecimal</option>
                         </select>
                     </aside>
+                    -->
                 </div>
             </header>
             
@@ -45,15 +48,8 @@
             
             <footer id="Footer">
                 <div class="inner">
-                    <nav class="links">
-                        <ul>
-                            <li><a href="#">about</a></li>
-                            <li><a href="#">links</a></li>
-                        </ul>
-                    </nav>
-                    
                     <small class="legal">
-                        Copyright &copy; 2013 - Dominic Pettifer
+                        Copyright &copy; 2014 - Dominic Pettifer
                     </small>
                 </div>
             </footer>
