@@ -2,6 +2,11 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
     'use strict';
     
     $.domReady(function() {
+        $.fromId('copy-button').$_on('click', function(e) {
+            var code = $.fromId('exampleCode').textContent.trim();
+            window.prompt("Copy to clipboard: Ctrl+C, Enter", code);
+        });
+        
         var executeRegex = function() {
         
             var input = controls.input.value;
@@ -16,9 +21,7 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                 if (method === 'replace') {
                     var result = utils.htmlEncode(input);
                     result = result.replace(/\n/g, '<br />');
-                    
-                    
-                    
+
                     controls.outputs.replace.result.$_html(result);
                     
                     controls.outputs.replace.container.style.display = 'table-row';
@@ -70,11 +73,11 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     controls.outputs.replace.result.$_html(result.replace(/\n/g, '<br />'));
                     
                     controls.exampleCode.innerHTML = codePlaceholders.replace
-                        .replace(/\n/g, '<br />')
+                        .replace(/\n/g, '\n<br />')
                         .replace(/  /g, '&nbsp;&nbsp;')
-                        .replace('$1', regexString)
+                        .replace('$1', utils.htmlEncode(regexString))
                         .replace('$2', options)
-                        .replace('$3', replacement);
+                        .replace('$3', utils.htmlEncode(replacement));
                         
                     controls.outputs.allContainers.$_hide();
                     controls.outputs.replace.container.style.display = 'table-row';
@@ -114,9 +117,9 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     }
                     
                     controls.exampleCode.innerHTML = codePlaceholders.search
-                        .replace(/\n/g, '<br />')
+                        .replace(/\n/g, '\n<br />')
                         .replace(/  /g, '&nbsp;&nbsp;')
-                        .replace('$1', regexString)
+                        .replace('$1', utils.htmlEncode(regexString))
                         .replace('$2', options);
                     
                     controls.outputs.allContainers.$_hide();
@@ -134,15 +137,24 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     var resultText = '';
                     if (numMatches > 0) {
                         for (var i = 0; i < matches.length; i++) {
-                            resultText += '<li>"' + utils.htmlEncode(matches[i]) + '"</li>';
+                            var match = matches[i];
+                            
+                            console.log(match);
+                            
+                            if (match === null || typeof match === 'undefined') {
+                                resultText += '<li>null</li>';
+                            }
+                            else {
+                                resultText += '<li>"' + utils.htmlEncode(matches[i]) + '"</li>';
+                            }
                         }
                     }
                     controls.outputs.match.result.$_html(resultText);
                 
                     controls.exampleCode.innerHTML = codePlaceholders.match
-                        .replace(/\n/g, '<br />')
+                        .replace(/\n/g, '\n<br />')
                         .replace(/  /g, '&nbsp;&nbsp;')
-                        .replace('$1', regexString)
+                        .replace('$1', utils.htmlEncode(regexString))
                         .replace('$2', options);
                 
                     controls.outputs.allContainers.$_hide();
@@ -162,9 +174,9 @@ require([ 'lib/resig', 'lib/utils' ], function($, utils) {
                     controls.outputs.split.result.$_html(resultText);
                     
                     controls.exampleCode.innerHTML = codePlaceholders.split
-                        .replace(/\n/g, '<br />')
+                        .replace(/\n/g, '\n<br />')
                         .replace(/  /g, '&nbsp;&nbsp;')
-                        .replace('$1', regexString)
+                        .replace('$1', utils.htmlEncode(regexString))
                         .replace('$2', options);
 
                     controls.outputs.allContainers.$_hide();
