@@ -6,6 +6,7 @@ var fs = require('fs');
 
 exports.task = function(app, next) {
 
+/*
 	MongoClient.connect('mongodb://127.0.0.1:27017/regbin', function(err, db) { 
 	    if (err) throw err;
 	    
@@ -39,4 +40,7 @@ exports.task = function(app, next) {
 	            });
 	    });
 	});
+*/
+
+    process.nextTick(next);
 };
